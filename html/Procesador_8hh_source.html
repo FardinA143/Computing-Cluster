@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Practica de PRO2: Simulación del rendimiento de procesadores interconectados: Fichero Fuente Procesador.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Practica de PRO2: Simulación del rendimiento de procesadores interconectados
+   </div>
+   <div id="projectbrief">Diseño de un programa que sea capaz de simular el rendimiento de procesadores interconectados (computación en clústeres)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Procesador.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Procesador_8hh.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef _PROCESADOR_</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define _PROCESADOR_</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Proceso_8hh.html">Proceso.hh</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef NO_DIAGRAM</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classProcesador.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classProcesador.html">Procesador</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classProcesador.html#a8ea3bef7bcc636c873378acfaf329c39">   28</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classProcesador.html#a8ea3bef7bcc636c873378acfaf329c39">ID</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classProcesador.html#a447b402c550a3e3a75d0bbc6cf80eb4a">   33</a></span>&#160;    pair&lt;int, int&gt; <a class="code" href="classProcesador.html#a447b402c550a3e3a75d0bbc6cf80eb4a">mem</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classProcesador.html#a436eb1d076b0fefc1192dd1f6eefba3f">   36</a></span>&#160;    map&lt;int, int&gt; <a class="code" href="classProcesador.html#a436eb1d076b0fefc1192dd1f6eefba3f">procesos_ID</a>; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classProcesador.html#a1075a63814befe7c1ca736c319866f88">   39</a></span>&#160;    map&lt;int, Proceso&gt; <a class="code" href="classProcesador.html#a1075a63814befe7c1ca736c319866f88">mem_proc</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classProcesador.html#af52e2442d77b13273a0ee46c95ef3da2">   42</a></span>&#160;    map&lt;int, set&lt;int&gt;&gt; <a class="code" href="classProcesador.html#af52e2442d77b13273a0ee46c95ef3da2">free_space</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">//Constructoras</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span>    <a class="code" href="classProcesador.html">Procesador</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classProcesador.html">Procesador</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; procID, <span class="keywordtype">int</span> mem);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">//Modificadoras</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> add_proceso(<span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; p);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> del_proceso(map &lt;int, Proceso&gt;::iterator&amp; it, <span class="keywordtype">int</span> id_proceso);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> actualizar_tiempo(<span class="keywordtype">int</span> seconds);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> compactar_memoria();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">//Consultoras</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> get_memoria_disponible() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">bool</span> existe_proceso(<span class="keywordtype">int</span> id_proceso) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; get_ID() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">bool</span> en_marcha() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">bool</span> get_free_space(<span class="keywordtype">int</span> size, <span class="keywordtype">int</span>&amp; pos) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;   <span class="comment">// Lectura y escritura</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> imprimir_procesador() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;};</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="ttc" id="aProceso_8hh_html"><div class="ttname"><a href="Proceso_8hh.html">Proceso.hh</a></div><div class="ttdoc">Especificacion de la clase Proceso.</div></div>
+<div class="ttc" id="aclassProcesador_html"><div class="ttname"><a href="classProcesador.html">Procesador</a></div><div class="ttdoc">Representa a un procesador con un identificador, su memoria y los procesos que contiene.</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8hh_source.html#l00024">Procesador.hh:25</a></div></div>
+<div class="ttc" id="aclassProcesador_html_a1075a63814befe7c1ca736c319866f88"><div class="ttname"><a href="classProcesador.html#a1075a63814befe7c1ca736c319866f88">Procesador::mem_proc</a></div><div class="ttdeci">map&lt; int, Proceso &gt; mem_proc</div><div class="ttdoc">Mapa de procesos del procesador, con la posición de memoria del proceso como clave y el proceso como ...</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8hh_source.html#l00039">Procesador.hh:39</a></div></div>
+<div class="ttc" id="aclassProcesador_html_a436eb1d076b0fefc1192dd1f6eefba3f"><div class="ttname"><a href="classProcesador.html#a436eb1d076b0fefc1192dd1f6eefba3f">Procesador::procesos_ID</a></div><div class="ttdeci">map&lt; int, int &gt; procesos_ID</div><div class="ttdoc">Mapa de procesos del procesador, con el identificador del proceso como clave y la posición de memoria...</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8hh_source.html#l00036">Procesador.hh:36</a></div></div>
+<div class="ttc" id="aclassProcesador_html_a447b402c550a3e3a75d0bbc6cf80eb4a"><div class="ttname"><a href="classProcesador.html#a447b402c550a3e3a75d0bbc6cf80eb4a">Procesador::mem</a></div><div class="ttdeci">pair&lt; int, int &gt; mem</div><div class="ttdoc">Valor de la memoria en el procesador mem.first = memoria total del procesador mem....</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8hh_source.html#l00033">Procesador.hh:33</a></div></div>
+<div class="ttc" id="aclassProcesador_html_a8ea3bef7bcc636c873378acfaf329c39"><div class="ttname"><a href="classProcesador.html#a8ea3bef7bcc636c873378acfaf329c39">Procesador::ID</a></div><div class="ttdeci">string ID</div><div class="ttdoc">Identificador del Procesador en formato string.</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8hh_source.html#l00028">Procesador.hh:28</a></div></div>
+<div class="ttc" id="aclassProcesador_html_af52e2442d77b13273a0ee46c95ef3da2"><div class="ttname"><a href="classProcesador.html#af52e2442d77b13273a0ee46c95ef3da2">Procesador::free_space</a></div><div class="ttdeci">map&lt; int, set&lt; int &gt; &gt; free_space</div><div class="ttdoc">Mapa de espacios libres del procesador, con el tamaño del espacio libre como clave y el inicio del es...</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8hh_source.html#l00042">Procesador.hh:42</a></div></div>
+<div class="ttc" id="aclassProceso_html"><div class="ttname"><a href="classProceso.html">Proceso</a></div><div class="ttdoc">Representa a un proceso con un identificador, su memoria requerida y su tiempo de ejecucion.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8hh_source.html#l00021">Proceso.hh:22</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

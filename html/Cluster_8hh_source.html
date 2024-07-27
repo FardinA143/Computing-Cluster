@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Practica de PRO2: Simulación del rendimiento de procesadores interconectados: Fichero Fuente Cluster.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Practica de PRO2: Simulación del rendimiento de procesadores interconectados
+   </div>
+   <div id="projectbrief">Diseño de un programa que sea capaz de simular el rendimiento de procesadores interconectados (computación en clústeres)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Cluster.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Cluster_8hh.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef _CLUSTER_</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define _CLUSTER_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Procesador_8hh.html">Procesador.hh</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Proceso_8hh.html">Proceso.hh</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef NO_DIAGRAM</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include&lt;map&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;BinTree.hh&quot;</span> </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include&lt;vector&gt;</span> </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include&lt;iostream&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include&lt;queue&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classCluster.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCluster.html">Cluster</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classCluster.html#a0adddfe61e37e8b8cba8b1900d75079b">   34</a></span>&#160;    map&lt;string, Procesador&gt; <a class="code" href="classCluster.html#a0adddfe61e37e8b8cba8b1900d75079b">procesadores_mapa</a>;    </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classCluster.html#a583708c442a9af9500b0ad0ac21e82d2">   36</a></span>&#160;    BinTree&lt;string&gt; <a class="code" href="classCluster.html#a583708c442a9af9500b0ad0ac21e82d2">procesadores_arbol</a>;     </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCluster.html#a8d86592e2e94fe405fc32de5e50c8683">leer_cluster</a>(BinTree&lt;string&gt;&amp; arbol_procesadores, map &lt;string, Procesador&gt;&amp; procesadores);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCluster.html#a473a9e8c53f6266a4d800e68c605042d">juntar_arboles</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; procID, <a class="code" href="classCluster.html">Cluster</a>&amp; c, BinTree&lt;string&gt;&amp; arbol);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#a8f379dc952ea121d77cd16a54e9e2f03">search_valid_proc</a>(map&lt;string, Procesador&gt;::iterator&amp; cpu_iterator, <span class="keyword">const</span> BinTree&lt;string&gt;&amp; proc_tree, <span class="keywordtype">int</span> pid, <span class="keywordtype">int</span> req_mem);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    map&lt;string, Procesador&gt; <a class="code" href="classCluster.html#ab6880d886d2b60ea85f57452e2e07e55">get_cpu_map</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    BinTree&lt;string&gt; <a class="code" href="classCluster.html#a666f2dba3664b737ceafcd34e7c07bc5">get_cpu_tree</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCluster.html#adb0d78905d7b42b77c4856a1d440cbed">print_cluster</a>(<span class="keyword">const</span> BinTree&lt;string&gt;&amp; arbol_procesadores);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// Constructoras</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"></span>    <a class="code" href="classCluster.html#aee7feb1d599d4c8fda6c3ee83e86ba81">Cluster</a>();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">// Modificadoras</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#a6972b8bde153a6075520d26288c81906">add_proc_cpu</a>(<span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; proceso, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; ID);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCluster.html#a47d0c2b218cfd29b5b690d741578f021">add_proc_ep</a>(<span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; p_to_add);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#a538358bd117e957ac8ccf7ef228e7afb">avanzar_tiempo</a>(<span class="keywordtype">int</span> segundos);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#a15c99567ed5075072d7d19cf5e23eb4e">eliminar_proceso</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; cpuID, <span class="keywordtype">int</span> PID);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#a15427306025f1f2180038413ada78ba9">modificar_cluster</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; cpuID, <a class="code" href="classCluster.html">Cluster</a>&amp; cluster);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#a7b9ae511df4a6465f4e191df6564fd77">compactar_memoria_cluster</a>();</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#a3302aa7f6ceace9d3c9e6f08b84f2e94">compactar_mem_proc</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; ID);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="comment">// Lectura y escritura</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#ab9637c5f2efbb033eeeae37b9f5b50a8">leer_estructura_cluster</a>();</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#a285714ee7b0d682682fbb634d2170f04">imprimir_estructura_cluster</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#a9436d5be8c89c3c09e69b2ccebc7cff0">imprimir_procesadores_cluster</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCluster.html#a9ac972b004a6a715df7e327694c1d8d2">imprimir_procesador</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; procID, map&lt;string, Procesador&gt;::const_iterator&amp; it) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;};</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aProcesador_8hh_html"><div class="ttname"><a href="Procesador_8hh.html">Procesador.hh</a></div><div class="ttdoc">Especificacion de la clase Procesador.</div></div>
+<div class="ttc" id="aProceso_8hh_html"><div class="ttname"><a href="Proceso_8hh.html">Proceso.hh</a></div><div class="ttdoc">Especificacion de la clase Proceso.</div></div>
+<div class="ttc" id="aclassCluster_html"><div class="ttname"><a href="classCluster.html">Cluster</a></div><div class="ttdoc">Representa a un cluster de procesadores.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8hh_source.html#l00030">Cluster.hh:31</a></div></div>
+<div class="ttc" id="aclassCluster_html_a0adddfe61e37e8b8cba8b1900d75079b"><div class="ttname"><a href="classCluster.html#a0adddfe61e37e8b8cba8b1900d75079b">Cluster::procesadores_mapa</a></div><div class="ttdeci">map&lt; string, Procesador &gt; procesadores_mapa</div><div class="ttdoc">Mapa de procesadores, con el identificador como clave y el Procesador como valor.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8hh_source.html#l00034">Cluster.hh:34</a></div></div>
+<div class="ttc" id="aclassCluster_html_a15427306025f1f2180038413ada78ba9"><div class="ttname"><a href="classCluster.html#a15427306025f1f2180038413ada78ba9">Cluster::modificar_cluster</a></div><div class="ttdeci">void modificar_cluster(const string &amp;cpuID, Cluster &amp;cluster)</div><div class="ttdoc">Modifica el cluster copiando los procesadores del cluster c en el cluster actual, manteniendo la jera...</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00132">Cluster.cc:132</a></div></div>
+<div class="ttc" id="aclassCluster_html_a15c99567ed5075072d7d19cf5e23eb4e"><div class="ttname"><a href="classCluster.html#a15c99567ed5075072d7d19cf5e23eb4e">Cluster::eliminar_proceso</a></div><div class="ttdeci">void eliminar_proceso(const string &amp;cpuID, int PID)</div><div class="ttdoc">Elimina el proceso con identificador PID del procesador especificado.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00122">Cluster.cc:122</a></div></div>
+<div class="ttc" id="aclassCluster_html_a285714ee7b0d682682fbb634d2170f04"><div class="ttname"><a href="classCluster.html#a285714ee7b0d682682fbb634d2170f04">Cluster::imprimir_estructura_cluster</a></div><div class="ttdeci">void imprimir_estructura_cluster() const</div><div class="ttdoc">Imprime la estructura del cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00166">Cluster.cc:166</a></div></div>
+<div class="ttc" id="aclassCluster_html_a3302aa7f6ceace9d3c9e6f08b84f2e94"><div class="ttname"><a href="classCluster.html#a3302aa7f6ceace9d3c9e6f08b84f2e94">Cluster::compactar_mem_proc</a></div><div class="ttdeci">void compactar_mem_proc(const string &amp;ID)</div><div class="ttdoc">Compacta la memoria del procesador especificado.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00154">Cluster.cc:154</a></div></div>
+<div class="ttc" id="aclassCluster_html_a473a9e8c53f6266a4d800e68c605042d"><div class="ttname"><a href="classCluster.html#a473a9e8c53f6266a4d800e68c605042d">Cluster::juntar_arboles</a></div><div class="ttdeci">bool juntar_arboles(const string &amp;procID, Cluster &amp;c, BinTree&lt; string &gt; &amp;arbol)</div><div class="ttdoc">Modifica el cluster copiando los procesadores del cluster c en el cluster actual, manteniendo la jera...</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00027">Cluster.cc:27</a></div></div>
+<div class="ttc" id="aclassCluster_html_a47d0c2b218cfd29b5b690d741578f021"><div class="ttname"><a href="classCluster.html#a47d0c2b218cfd29b5b690d741578f021">Cluster::add_proc_ep</a></div><div class="ttdeci">bool add_proc_ep(const Proceso &amp;p_to_add)</div><div class="ttdoc">Busca un procesador apto para el Proceso p_to_add proporcionado por el area de espera y devuelve un b...</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00107">Cluster.cc:107</a></div></div>
+<div class="ttc" id="aclassCluster_html_a538358bd117e957ac8ccf7ef228e7afb"><div class="ttname"><a href="classCluster.html#a538358bd117e957ac8ccf7ef228e7afb">Cluster::avanzar_tiempo</a></div><div class="ttdeci">void avanzar_tiempo(int segundos)</div><div class="ttdoc">Actualiza los tiempos de los procesos en el cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00115">Cluster.cc:115</a></div></div>
+<div class="ttc" id="aclassCluster_html_a583708c442a9af9500b0ad0ac21e82d2"><div class="ttname"><a href="classCluster.html#a583708c442a9af9500b0ad0ac21e82d2">Cluster::procesadores_arbol</a></div><div class="ttdeci">BinTree&lt; string &gt; procesadores_arbol</div><div class="ttdoc">Arbol de procesadores.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8hh_source.html#l00036">Cluster.hh:36</a></div></div>
+<div class="ttc" id="aclassCluster_html_a666f2dba3664b737ceafcd34e7c07bc5"><div class="ttname"><a href="classCluster.html#a666f2dba3664b737ceafcd34e7c07bc5">Cluster::get_cpu_tree</a></div><div class="ttdeci">BinTree&lt; string &gt; get_cpu_tree() const</div><div class="ttdoc">Devuelve el arbol de procesadores del cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00076">Cluster.cc:76</a></div></div>
+<div class="ttc" id="aclassCluster_html_a6972b8bde153a6075520d26288c81906"><div class="ttname"><a href="classCluster.html#a6972b8bde153a6075520d26288c81906">Cluster::add_proc_cpu</a></div><div class="ttdeci">void add_proc_cpu(const Proceso &amp;proceso, const string &amp;ID)</div><div class="ttdoc">Añade un proceso al procesador especificado.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00097">Cluster.cc:97</a></div></div>
+<div class="ttc" id="aclassCluster_html_a7b9ae511df4a6465f4e191df6564fd77"><div class="ttname"><a href="classCluster.html#a7b9ae511df4a6465f4e191df6564fd77">Cluster::compactar_memoria_cluster</a></div><div class="ttdeci">void compactar_memoria_cluster()</div><div class="ttdoc">Compacta la memoria del cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00146">Cluster.cc:146</a></div></div>
+<div class="ttc" id="aclassCluster_html_a8d86592e2e94fe405fc32de5e50c8683"><div class="ttname"><a href="classCluster.html#a8d86592e2e94fe405fc32de5e50c8683">Cluster::leer_cluster</a></div><div class="ttdeci">static void leer_cluster(BinTree&lt; string &gt; &amp;arbol_procesadores, map&lt; string, Procesador &gt; &amp;procesadores)</div><div class="ttdoc">Lee la estructura del cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00011">Cluster.cc:11</a></div></div>
+<div class="ttc" id="aclassCluster_html_a8f379dc952ea121d77cd16a54e9e2f03"><div class="ttname"><a href="classCluster.html#a8f379dc952ea121d77cd16a54e9e2f03">Cluster::search_valid_proc</a></div><div class="ttdeci">void search_valid_proc(map&lt; string, Procesador &gt;::iterator &amp;cpu_iterator, const BinTree&lt; string &gt; &amp;proc_tree, int pid, int req_mem)</div><div class="ttdoc">Busca un procesador en el cluster que cumpla las condiciones necesarias para añadir un proceso La bus...</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00051">Cluster.cc:51</a></div></div>
+<div class="ttc" id="aclassCluster_html_a9436d5be8c89c3c09e69b2ccebc7cff0"><div class="ttname"><a href="classCluster.html#a9436d5be8c89c3c09e69b2ccebc7cff0">Cluster::imprimir_procesadores_cluster</a></div><div class="ttdeci">void imprimir_procesadores_cluster() const</div><div class="ttdoc">Imprime los procesadores del cluster, junto a sus detalles.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00171">Cluster.cc:171</a></div></div>
+<div class="ttc" id="aclassCluster_html_a9ac972b004a6a715df7e327694c1d8d2"><div class="ttname"><a href="classCluster.html#a9ac972b004a6a715df7e327694c1d8d2">Cluster::imprimir_procesador</a></div><div class="ttdeci">void imprimir_procesador(const string &amp;procID, map&lt; string, Procesador &gt;::const_iterator &amp;it) const</div><div class="ttdoc">Imprime los detalles del procesador especificado.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00178">Cluster.cc:178</a></div></div>
+<div class="ttc" id="aclassCluster_html_ab6880d886d2b60ea85f57452e2e07e55"><div class="ttname"><a href="classCluster.html#ab6880d886d2b60ea85f57452e2e07e55">Cluster::get_cpu_map</a></div><div class="ttdeci">map&lt; string, Procesador &gt; get_cpu_map() const</div><div class="ttdoc">Devuelve el mapa de procesadores del cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00072">Cluster.cc:72</a></div></div>
+<div class="ttc" id="aclassCluster_html_ab9637c5f2efbb033eeeae37b9f5b50a8"><div class="ttname"><a href="classCluster.html#ab9637c5f2efbb033eeeae37b9f5b50a8">Cluster::leer_estructura_cluster</a></div><div class="ttdeci">void leer_estructura_cluster()</div><div class="ttdoc">Lee la estructura del cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00160">Cluster.cc:160</a></div></div>
+<div class="ttc" id="aclassCluster_html_adb0d78905d7b42b77c4856a1d440cbed"><div class="ttname"><a href="classCluster.html#adb0d78905d7b42b77c4856a1d440cbed">Cluster::print_cluster</a></div><div class="ttdeci">static void print_cluster(const BinTree&lt; string &gt; &amp;arbol_procesadores)</div><div class="ttdoc">Imprime la estructura del cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00080">Cluster.cc:80</a></div></div>
+<div class="ttc" id="aclassCluster_html_aee7feb1d599d4c8fda6c3ee83e86ba81"><div class="ttname"><a href="classCluster.html#aee7feb1d599d4c8fda6c3ee83e86ba81">Cluster::Cluster</a></div><div class="ttdeci">Cluster()</div><div class="ttdoc">Constructora Cluster.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00006">Cluster.cc:6</a></div></div>
+<div class="ttc" id="aclassProceso_html"><div class="ttname"><a href="classProceso.html">Proceso</a></div><div class="ttdoc">Representa a un proceso con un identificador, su memoria requerida y su tiempo de ejecucion.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8hh_source.html#l00021">Proceso.hh:22</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

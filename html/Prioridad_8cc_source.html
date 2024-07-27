@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Practica de PRO2: Simulación del rendimiento de procesadores interconectados: Fichero Fuente Prioridad.cc</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Practica de PRO2: Simulación del rendimiento de procesadores interconectados
+   </div>
+   <div id="projectbrief">Diseño de un programa que sea capaz de simular el rendimiento de procesadores interconectados (computación en clústeres)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Prioridad.cc</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Prioridad_8cc.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Prioridad_8hh.html">Prioridad.hh</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Constructoras</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classPrioridad.html#a239123296380077ef6959111bf599a90">    6</a></span>&#160;<a class="code" href="classPrioridad.html#a239123296380077ef6959111bf599a90">Prioridad::Prioridad</a>() {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    send_data.first = send_data.second = 0;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;}</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// Modificadoras</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classPrioridad.html#a89b3efd1502ebe5c43f0d7fca1506808">   10</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#a89b3efd1502ebe5c43f0d7fca1506808">Prioridad::add_proceso</a>(<span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; p) {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    proc_age.emplace_back(p.<a class="code" href="classProceso.html#a9af6de881346a5f2cd1736f0b816fd20">consultar_PID</a>());</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    procesos.emplace(p.<a class="code" href="classProceso.html#a9af6de881346a5f2cd1736f0b816fd20">consultar_PID</a>(), p);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;} </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classPrioridad.html#afd9c466c760208e542b24b54d6f55abd">   16</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#afd9c466c760208e542b24b54d6f55abd">Prioridad::send_proceso</a>(<span class="keywordtype">int</span> &amp;num, <a class="code" href="classCluster.html">Cluster</a> &amp;c) {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> (not proc_age.empty()) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">auto</span> it = proc_age.begin();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">int</span> max_size = proc_age.size();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">int</span> index = 0;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">while</span>(not (num == 0 or index == max_size)) {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordflow">if</span> (c.<a class="code" href="classCluster.html#a47d0c2b218cfd29b5b690d741578f021">add_proc_ep</a>(procesos.at(*it))) {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                ++send_data.first;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                procesos.erase(*it);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                it = proc_age.erase(it);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                --num;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                proc_age.emplace_back(*it);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                it = proc_age.erase(it); </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                ++send_data.second;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            ++index;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;} </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">// Consultoras</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classPrioridad.html#a20a2c4faec8e2f505e56989239a406cf">   39</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classPrioridad.html#a20a2c4faec8e2f505e56989239a406cf">Prioridad::empty</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">return</span> (procesos.size() == 0);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;} </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classPrioridad.html#aba7517259db0237db140214e133cdb75">   45</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classPrioridad.html#aba7517259db0237db140214e133cdb75">Prioridad::existe_proceso</a>(<span class="keywordtype">int</span> ID)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> (not procesos.empty() and procesos.count(ID) != 0);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;} </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">// Lectura y escritura</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classPrioridad.html#a490d98b6698172eea14eda49ee3a9319">   51</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#a490d98b6698172eea14eda49ee3a9319">Prioridad::print_procesos</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <span class="keywordtype">id</span> : proc_age) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        procesos.at(<span class="keywordtype">id</span>).imprimir_proceso();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classPrioridad.html#ac75460148b35134802b68e24e6114026">   57</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#ac75460148b35134802b68e24e6114026">Prioridad::enviados_rechazados</a>()<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    cout &lt;&lt; send_data.first &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; send_data.second &lt;&lt; endl;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;} </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="ttc" id="aPrioridad_8hh_html"><div class="ttname"><a href="Prioridad_8hh.html">Prioridad.hh</a></div><div class="ttdoc">Especificacion de la clase Prioridad.</div></div>
+<div class="ttc" id="aclassCluster_html"><div class="ttname"><a href="classCluster.html">Cluster</a></div><div class="ttdoc">Representa a un cluster de procesadores.</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8hh_source.html#l00030">Cluster.hh:31</a></div></div>
+<div class="ttc" id="aclassCluster_html_a47d0c2b218cfd29b5b690d741578f021"><div class="ttname"><a href="classCluster.html#a47d0c2b218cfd29b5b690d741578f021">Cluster::add_proc_ep</a></div><div class="ttdeci">bool add_proc_ep(const Proceso &amp;p_to_add)</div><div class="ttdoc">Busca un procesador apto para el Proceso p_to_add proporcionado por el area de espera y devuelve un b...</div><div class="ttdef"><b>Definition:</b> <a href="Cluster_8cc_source.html#l00107">Cluster.cc:107</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a20a2c4faec8e2f505e56989239a406cf"><div class="ttname"><a href="classPrioridad.html#a20a2c4faec8e2f505e56989239a406cf">Prioridad::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdoc">Mira si la prioridad esta vacia.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00039">Prioridad.cc:39</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a239123296380077ef6959111bf599a90"><div class="ttname"><a href="classPrioridad.html#a239123296380077ef6959111bf599a90">Prioridad::Prioridad</a></div><div class="ttdeci">Prioridad()</div><div class="ttdoc">Constructora Prioridad con identificador.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00006">Prioridad.cc:6</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a490d98b6698172eea14eda49ee3a9319"><div class="ttname"><a href="classPrioridad.html#a490d98b6698172eea14eda49ee3a9319">Prioridad::print_procesos</a></div><div class="ttdeci">void print_procesos() const</div><div class="ttdoc">Imprime los procesos de la prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00051">Prioridad.cc:51</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a89b3efd1502ebe5c43f0d7fca1506808"><div class="ttname"><a href="classPrioridad.html#a89b3efd1502ebe5c43f0d7fca1506808">Prioridad::add_proceso</a></div><div class="ttdeci">void add_proceso(const Proceso &amp;p)</div><div class="ttdoc">Añade un proceso a la prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00010">Prioridad.cc:10</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_aba7517259db0237db140214e133cdb75"><div class="ttname"><a href="classPrioridad.html#aba7517259db0237db140214e133cdb75">Prioridad::existe_proceso</a></div><div class="ttdeci">bool existe_proceso(int ID) const</div><div class="ttdoc">Mira si un proceso existe en la prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00045">Prioridad.cc:45</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_ac75460148b35134802b68e24e6114026"><div class="ttname"><a href="classPrioridad.html#ac75460148b35134802b68e24e6114026">Prioridad::enviados_rechazados</a></div><div class="ttdeci">void enviados_rechazados() const</div><div class="ttdoc">Imprime las veces que se han enviado y rechazado procesos de la prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00057">Prioridad.cc:57</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_afd9c466c760208e542b24b54d6f55abd"><div class="ttname"><a href="classPrioridad.html#afd9c466c760208e542b24b54d6f55abd">Prioridad::send_proceso</a></div><div class="ttdeci">void send_proceso(int &amp;num, Cluster &amp;c)</div><div class="ttdoc">Envia al cluster c num procesos.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00016">Prioridad.cc:16</a></div></div>
+<div class="ttc" id="aclassProceso_html"><div class="ttname"><a href="classProceso.html">Proceso</a></div><div class="ttdoc">Representa a un proceso con un identificador, su memoria requerida y su tiempo de ejecucion.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8hh_source.html#l00021">Proceso.hh:22</a></div></div>
+<div class="ttc" id="aclassProceso_html_a9af6de881346a5f2cd1736f0b816fd20"><div class="ttname"><a href="classProceso.html#a9af6de881346a5f2cd1736f0b816fd20">Proceso::consultar_PID</a></div><div class="ttdeci">int consultar_PID() const</div><div class="ttdoc">Consulta el identificador del proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8cc_source.html#l00014">Proceso.cc:14</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

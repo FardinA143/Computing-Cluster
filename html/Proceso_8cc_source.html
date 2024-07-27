@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Practica de PRO2: Simulación del rendimiento de procesadores interconectados: Fichero Fuente Proceso.cc</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Practica de PRO2: Simulación del rendimiento de procesadores interconectados
+   </div>
+   <div id="projectbrief">Diseño de un programa que sea capaz de simular el rendimiento de procesadores interconectados (computación en clústeres)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Proceso.cc</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Proceso_8cc.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Proceso_8hh.html">Proceso.hh</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Constructoras</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classProceso.html#a632f57d6ec48e76c80fbeb7734c1148c">    6</a></span>&#160;<a class="code" href="classProceso.html#a632f57d6ec48e76c80fbeb7734c1148c">Proceso::Proceso</a>(){}</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">// Modificadoras</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classProceso.html#a5b1f3b79c1b2d27313554b92ba57ae11">    9</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classProceso.html#a5b1f3b79c1b2d27313554b92ba57ae11">Proceso::actualizar_tiempo</a>(<span class="keywordtype">int</span> seconds) {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    tiempo -= seconds;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// Consultoras</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classProceso.html#a9af6de881346a5f2cd1736f0b816fd20">   14</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classProceso.html#a9af6de881346a5f2cd1736f0b816fd20">Proceso::consultar_PID</a>()<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">return</span> PID;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classProceso.html#a768a298ff4a363a53b68c9abb6c55c2e">   18</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classProceso.html#a768a298ff4a363a53b68c9abb6c55c2e">Proceso::consultar_mem_req</a>()<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> memoria;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classProceso.html#a07080502861e86bd9c09880ccbde48ef">   22</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classProceso.html#a07080502861e86bd9c09880ccbde48ef">Proceso::consultar_tiempo_finalizacion</a>()<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> tiempo;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// Lectura y escritura</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classProceso.html#acfc1b59d4fa0dd7bba4d02c6c6880ea9">   28</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classProceso.html#acfc1b59d4fa0dd7bba4d02c6c6880ea9">Proceso::leer_proceso</a>() {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    cin &gt;&gt; PID &gt;&gt; memoria &gt;&gt; tiempo;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classProceso.html#ac1c20f0a1a60574b8e246ccb82b6d1e6">   32</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classProceso.html#ac1c20f0a1a60574b8e246ccb82b6d1e6">Proceso::imprimir_proceso</a>()<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    cout &lt;&lt; PID &lt;&lt; <span class="charliteral">&#39; &#39;</span> &lt;&lt; memoria &lt;&lt; <span class="charliteral">&#39; &#39;</span> &lt;&lt; tiempo &lt;&lt; endl;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
+<div class="ttc" id="aProceso_8hh_html"><div class="ttname"><a href="Proceso_8hh.html">Proceso.hh</a></div><div class="ttdoc">Especificacion de la clase Proceso.</div></div>
+<div class="ttc" id="aclassProceso_html_a07080502861e86bd9c09880ccbde48ef"><div class="ttname"><a href="classProceso.html#a07080502861e86bd9c09880ccbde48ef">Proceso::consultar_tiempo_finalizacion</a></div><div class="ttdeci">int consultar_tiempo_finalizacion() const</div><div class="ttdoc">Consulta el tiempo en el que finalizara el proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8cc_source.html#l00022">Proceso.cc:22</a></div></div>
+<div class="ttc" id="aclassProceso_html_a5b1f3b79c1b2d27313554b92ba57ae11"><div class="ttname"><a href="classProceso.html#a5b1f3b79c1b2d27313554b92ba57ae11">Proceso::actualizar_tiempo</a></div><div class="ttdeci">void actualizar_tiempo(int seconds)</div><div class="ttdoc">Actualiza el tiempo restante de ejecucion del proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8cc_source.html#l00009">Proceso.cc:9</a></div></div>
+<div class="ttc" id="aclassProceso_html_a632f57d6ec48e76c80fbeb7734c1148c"><div class="ttname"><a href="classProceso.html#a632f57d6ec48e76c80fbeb7734c1148c">Proceso::Proceso</a></div><div class="ttdeci">Proceso()</div><div class="ttdoc">Constructora Proceso por defecto.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8cc_source.html#l00006">Proceso.cc:6</a></div></div>
+<div class="ttc" id="aclassProceso_html_a768a298ff4a363a53b68c9abb6c55c2e"><div class="ttname"><a href="classProceso.html#a768a298ff4a363a53b68c9abb6c55c2e">Proceso::consultar_mem_req</a></div><div class="ttdeci">int consultar_mem_req() const</div><div class="ttdoc">Consulta la cantidad de memoria que ocupa el proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8cc_source.html#l00018">Proceso.cc:18</a></div></div>
+<div class="ttc" id="aclassProceso_html_a9af6de881346a5f2cd1736f0b816fd20"><div class="ttname"><a href="classProceso.html#a9af6de881346a5f2cd1736f0b816fd20">Proceso::consultar_PID</a></div><div class="ttdeci">int consultar_PID() const</div><div class="ttdoc">Consulta el identificador del proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8cc_source.html#l00014">Proceso.cc:14</a></div></div>
+<div class="ttc" id="aclassProceso_html_ac1c20f0a1a60574b8e246ccb82b6d1e6"><div class="ttname"><a href="classProceso.html#ac1c20f0a1a60574b8e246ccb82b6d1e6">Proceso::imprimir_proceso</a></div><div class="ttdeci">void imprimir_proceso() const</div><div class="ttdoc">Imprime los atributos de un proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8cc_source.html#l00032">Proceso.cc:32</a></div></div>
+<div class="ttc" id="aclassProceso_html_acfc1b59d4fa0dd7bba4d02c6c6880ea9"><div class="ttname"><a href="classProceso.html#acfc1b59d4fa0dd7bba4d02c6c6880ea9">Proceso::leer_proceso</a></div><div class="ttdeci">void leer_proceso()</div><div class="ttdoc">Lee los atributos de un proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8cc_source.html#l00028">Proceso.cc:28</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['pid_47',['PID',['../classProceso.html#ac86db2e9a26fe33d7105903368943025',1,'Proceso']]],
+  ['print_5fcluster_48',['print_cluster',['../classCluster.html#adb0d78905d7b42b77c4856a1d440cbed',1,'Cluster']]],
+  ['print_5fprocesos_49',['print_procesos',['../classPrioridad.html#a490d98b6698172eea14eda49ee3a9319',1,'Prioridad']]],
+  ['prioridad_50',['Prioridad',['../classPrioridad.html',1,'Prioridad'],['../classPrioridad.html#a239123296380077ef6959111bf599a90',1,'Prioridad::Prioridad()']]],
+  ['prioridad_2ecc_51',['Prioridad.cc',['../Prioridad_8cc.html',1,'']]],
+  ['prioridad_2ehh_52',['Prioridad.hh',['../Prioridad_8hh.html',1,'']]],
+  ['prioridades_53',['prioridades',['../classEspera__procesos.html#a42f41887a80154a9be19c606749f90fc',1,'Espera_procesos']]],
+  ['proc_5fage_54',['proc_age',['../classPrioridad.html#a6995ba2f93ea98d6385aa2ed182b2ec5',1,'Prioridad']]],
+  ['procesador_55',['Procesador',['../classProcesador.html',1,'Procesador'],['../classProcesador.html#a458a679aa292d18ef627e16c142d18ed',1,'Procesador::Procesador(const string &amp;procID, int mem)'],['../classProcesador.html#aacfa2a06c7d44636ecfb0338bebbfa8b',1,'Procesador::Procesador()']]],
+  ['procesador_2ecc_56',['Procesador.cc',['../Procesador_8cc.html',1,'']]],
+  ['procesador_2ehh_57',['Procesador.hh',['../Procesador_8hh.html',1,'']]],
+  ['procesadores_5farbol_58',['procesadores_arbol',['../classCluster.html#a583708c442a9af9500b0ad0ac21e82d2',1,'Cluster']]],
+  ['procesadores_5fmapa_59',['procesadores_mapa',['../classCluster.html#a0adddfe61e37e8b8cba8b1900d75079b',1,'Cluster']]],
+  ['proceso_60',['Proceso',['../classProceso.html',1,'Proceso'],['../classProceso.html#a632f57d6ec48e76c80fbeb7734c1148c',1,'Proceso::Proceso()']]],
+  ['proceso_2ecc_61',['Proceso.cc',['../Proceso_8cc.html',1,'']]],
+  ['proceso_2ehh_62',['Proceso.hh',['../Proceso_8hh.html',1,'']]],
+  ['proceso_5fcluster_63',['proceso_cluster',['../classEspera__procesos.html#a9bee838047f589310671e4ce8dc0d321',1,'Espera_procesos']]],
+  ['procesos_64',['procesos',['../classPrioridad.html#ac674ec9a1bb071eedcef5d3aa955788f',1,'Prioridad']]],
+  ['procesos_5fid_65',['procesos_ID',['../classProcesador.html#a436eb1d076b0fefc1192dd1f6eefba3f',1,'Procesador']]],
+  ['procesos_5fprioridad_66',['procesos_prioridad',['../classEspera__procesos.html#af3268770b3bda15aa4cb706c7a55fb84',1,'Espera_procesos']]],
+  ['program_2ecc_67',['program.cc',['../program_8cc.html',1,'']]],
+  ['práctica_20pro2_3a_20simulación_20del_20rendimiento_20de_20procesadores_20interconectados_68',['Práctica PRO2: Simulación del rendimiento de procesadores interconectados',['../index.html',1,'']]]
+];

@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Practica de PRO2: Simulación del rendimiento de procesadores interconectados: Fichero Fuente Procesador.cc</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Practica de PRO2: Simulación del rendimiento de procesadores interconectados
+   </div>
+   <div id="projectbrief">Diseño de un programa que sea capaz de simular el rendimiento de procesadores interconectados (computación en clústeres)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Procesador.cc</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Procesador_8cc.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Procesador_8hh.html">Procesador.hh</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Constructoras</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classProcesador.html#aacfa2a06c7d44636ecfb0338bebbfa8b">    6</a></span>&#160;<a class="code" href="classProcesador.html#aacfa2a06c7d44636ecfb0338bebbfa8b">Procesador::Procesador</a>() {}</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classProcesador.html#a458a679aa292d18ef627e16c142d18ed">    8</a></span>&#160;<a class="code" href="classProcesador.html#aacfa2a06c7d44636ecfb0338bebbfa8b">Procesador::Procesador</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; procID, <span class="keywordtype">int</span> memory) {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    ID = procID;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    mem.first = memory;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    mem.second = 0;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    free_space[memory].insert(0);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// Modificadoras</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classProcesador.html#ae3d9e439b3ec313a37cb28e75035243f">   16</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classProcesador.html#ae3d9e439b3ec313a37cb28e75035243f">Procesador::add_proceso</a>(<span class="keyword">const</span> <a class="code" href="classProceso.html">Proceso</a>&amp; p) {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">int</span> memory_needed = p.<a class="code" href="classProceso.html#a768a298ff4a363a53b68c9abb6c55c2e">consultar_mem_req</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">auto</span> it = free_space.lower_bound(memory_needed);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">if</span> (it == free_space.end()) cout &lt;&lt; <span class="stringliteral">&quot;error: no cabe proceso&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">auto</span> it_pos = it-&gt;second.begin();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        mem.second += memory_needed;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">int</span> space = it-&gt;first - memory_needed;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">if</span> (space &gt; 0) free_space[space].insert(*it_pos + memory_needed);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        mem_proc.emplace(*it_pos, p);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        procesos_ID.emplace(p.<a class="code" href="classProceso.html#a9af6de881346a5f2cd1736f0b816fd20">consultar_PID</a>(), *it_pos);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        it-&gt;second.erase(*it_pos);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span> (it-&gt;second.empty()) it = free_space.erase(it);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classProcesador.html#a90a9d28ed106038a8a62c8d06750c1a9">   33</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classProcesador.html#a90a9d28ed106038a8a62c8d06750c1a9">Procesador::del_proceso</a>(map&lt;int, Proceso&gt;::iterator&amp; it, <span class="keywordtype">int</span> id_proceso) {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span> (id_proceso != -1) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">auto</span> it_aux = procesos_ID.find(id_proceso); <span class="comment">// Este lado se llama desde baja_proceso_procesador</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span> (it_aux == procesos_ID.end()) {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            cout &lt;&lt; <span class="stringliteral">&quot;error: no existe proceso&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        it = mem_proc.find(it_aux-&gt;second);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        mem.second -= it-&gt;second.consultar_mem_req();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    procesos_ID.erase(it-&gt;second.consultar_PID());</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span> (procesos_ID.empty()) { <span class="comment">// Si no quedan procesos, se resetea los mapas y indices</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        free_space.clear();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        free_space[mem.first].insert(0);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    } </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">else</span> { <span class="comment">// En otro caso se sigue esto</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">int</span> index = it-&gt;first;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">int</span> mempos = it-&gt;second.consultar_mem_req() + index;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">int</span> old_ind = 0;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">int</span> next_ind = mem.first;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">auto</span> prev_it = it;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">if</span> (it != mem_proc.begin()) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            --prev_it;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            old_ind = prev_it-&gt;first + prev_it-&gt;second.consultar_mem_req();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            free_space[index - old_ind].erase(old_ind);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">if</span> (free_space[index - old_ind].empty()) free_space.erase(index - old_ind);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            ++prev_it;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            free_space[index].erase(0);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">if</span> (free_space[index].empty()) free_space.erase(index);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">auto</span> next_it = it;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        ++next_it;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span> (next_it != mem_proc.end()) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            next_ind = next_it-&gt;first;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            free_space[next_ind - mempos].erase(mempos);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">if</span> (free_space[next_ind - mempos].empty()) free_space.erase(next_ind - mempos);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            free_space[mem.first - mempos].erase(mempos);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">if</span> (free_space[mem.first - mempos].empty()) free_space.erase(mem.first - mempos);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        free_space[next_ind - old_ind].insert(old_ind);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    it = mem_proc.erase(it); <span class="comment">// Apunta al elemento siguiente al borrado</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classProcesador.html#aa5ac6a74af6a4a1caf64e44517b3403f">   87</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classProcesador.html#aa5ac6a74af6a4a1caf64e44517b3403f">Procesador::actualizar_tiempo</a>(<span class="keywordtype">int</span> seconds) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span> (not procesos_ID.empty()) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">auto</span> it = mem_proc.begin();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">while</span> (it != mem_proc.end()) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">if</span> (it-&gt;second.consultar_tiempo_finalizacion() &lt;= seconds) del_proceso(it, -1);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                it-&gt;second.actualizar_tiempo(seconds);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                ++it;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            }}}}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classProcesador.html#a06b0b1c913b359a1bc6c920120dd0e66">   98</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classProcesador.html#a06b0b1c913b359a1bc6c920120dd0e66">Procesador::compactar_memoria</a>() {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">if</span> (not procesos_ID.empty()) {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        free_space.clear();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keyword">auto</span> it = mem_proc.begin();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordtype">int</span> pos = 0;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">while</span> (it != mem_proc.end()) {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <span class="keywordflow">if</span> (it-&gt;first != pos) {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                mem_proc.insert(it, make_pair(pos, it-&gt;second));</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                procesos_ID[it-&gt;second.consultar_PID()] = pos;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                pos += it-&gt;second.consultar_mem_req();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                it = mem_proc.erase(it);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                pos += it-&gt;second.consultar_mem_req();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                ++it;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            } </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        free_space[mem.first - pos].insert(pos);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">// Consultoras</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="classProcesador.html#aee2a471e9888badc526dda5093499b48">  121</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classProcesador.html#aee2a471e9888badc526dda5093499b48">Procesador::get_memoria_disponible</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">return</span> mem.first - mem.second;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="classProcesador.html#a24881788591a679d2dc1f2d17e61a1de">  125</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classProcesador.html#a24881788591a679d2dc1f2d17e61a1de">Procesador::existe_proceso</a>(<span class="keywordtype">int</span> id_proceso)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> procesos_ID.count(id_proceso) != 0;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="classProcesador.html#ac84cef4819ea46038c35a8f37804b281">  129</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <a class="code" href="classProcesador.html#ac84cef4819ea46038c35a8f37804b281">Procesador::get_ID</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">return</span> ID;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;} </div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classProcesador.html#a40fa7573ca12ec1c5e8c96fc597485d2">  132</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classProcesador.html#a40fa7573ca12ec1c5e8c96fc597485d2">Procesador::en_marcha</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">return</span> not procesos_ID.empty();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="classProcesador.html#a3a2d8d2509cc72d236d37b4046b4c57b">  137</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classProcesador.html#a3a2d8d2509cc72d236d37b4046b4c57b">Procesador::get_free_space</a>(<span class="keywordtype">int</span> size, <span class="keywordtype">int</span>&amp; pos)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">auto</span> it = free_space.lower_bound(size);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordflow">if</span> (it == free_space.end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    pos = it-&gt;first;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;} </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment">// Lectura y escritura</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="classProcesador.html#ad0c00caaab94b8fa561e3db6ea7f36f2">  146</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classProcesador.html#ad0c00caaab94b8fa561e3db6ea7f36f2">Procesador::imprimir_procesador</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; par : mem_proc) {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        cout &lt;&lt; par.first &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        par.second.imprimir_proceso();</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    }</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;}</div>
+<div class="ttc" id="aProcesador_8hh_html"><div class="ttname"><a href="Procesador_8hh.html">Procesador.hh</a></div><div class="ttdoc">Especificacion de la clase Procesador.</div></div>
+<div class="ttc" id="aclassProcesador_html_a06b0b1c913b359a1bc6c920120dd0e66"><div class="ttname"><a href="classProcesador.html#a06b0b1c913b359a1bc6c920120dd0e66">Procesador::compactar_memoria</a></div><div class="ttdeci">void compactar_memoria()</div><div class="ttdoc">Compacta la memoria del procesador.</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8cc_source.html#l00098">Procesador.cc:98</a></div></div>
+<div class="ttc" id="aclassProcesador_html_a24881788591a679d2dc1f2d17e61a1de"><div class="ttname"><a href="classProcesador.html#a24881788591a679d2dc1f2d17e61a1de">Procesador::existe_proceso</a></div><div class="ttdeci">bool existe_proceso(int id_proceso) const</div><div class="ttdoc">Devuelve true o false dependiendo si existe el proceso con id_proceso en el procesador.</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8cc_source.html#l00125">Procesador.cc:125</a></div></div>
+<div class="ttc" id="aclassProcesador_html_a3a2d8d2509cc72d236d37b4046b4c57b"><div class="ttname"><a href="classProcesador.html#a3a2d8d2509cc72d236d37b4046b4c57b">Procesador::get_free_space</a></div><div class="ttdeci">bool get_free_space(int size, int &amp;pos) const</div><div class="ttdoc">Indica si hay espacio libre en el procesador de tamaño size.</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8cc_source.html#l00137">Procesador.cc:137</a></div></div>
+<div class="ttc" id="aclassProcesador_html_a40fa7573ca12ec1c5e8c96fc597485d2"><div class="ttname"><a href="classProcesador.html#a40fa7573ca12ec1c5e8c96fc597485d2">Procesador::en_marcha</a></div><div class="ttdeci">bool en_marcha() const</div><div class="ttdoc">Indica si hay procesos en el procesador.</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8cc_source.html#l00132">Procesador.cc:132</a></div></div>
+<div class="ttc" id="aclassProcesador_html_a90a9d28ed106038a8a62c8d06750c1a9"><div class="ttname"><a href="classProcesador.html#a90a9d28ed106038a8a62c8d06750c1a9">Procesador::del_proceso</a></div><div class="ttdeci">void del_proceso(map&lt; int, Proceso &gt;::iterator &amp;it, int id_proceso)</div><div class="ttdoc">Elimina un proceso con id_proceso del procesador.</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8cc_source.html#l00033">Procesador.cc:33</a></div></div>
+<div class="ttc" id="aclassProcesador_html_aa5ac6a74af6a4a1caf64e44517b3403f"><div class="ttname"><a href="classProcesador.html#aa5ac6a74af6a4a1caf64e44517b3403f">Procesador::actualizar_tiempo</a></div><div class="ttdeci">void actualizar_tiempo(int seconds)</div><div class="ttdoc">Actualiza el tiempo restante de ejecucion de cada proceso del procesador.</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8cc_source.html#l00087">Procesador.cc:87</a></div></div>
+<div class="ttc" id="aclassProcesador_html_aacfa2a06c7d44636ecfb0338bebbfa8b"><div class="ttname"><a href="classProcesador.html#aacfa2a06c7d44636ecfb0338bebbfa8b">Procesador::Procesador</a></div><div class="ttdeci">Procesador()</div><div class="ttdoc">Constructora por defecto de un objeto Procesador.</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8cc_source.html#l00006">Procesador.cc:6</a></div></div>
+<div class="ttc" id="aclassProcesador_html_ac84cef4819ea46038c35a8f37804b281"><div class="ttname"><a href="classProcesador.html#ac84cef4819ea46038c35a8f37804b281">Procesador::get_ID</a></div><div class="ttdeci">const string &amp; get_ID() const</div><div class="ttdoc">Consulta el identificador del procesador.</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8cc_source.html#l00129">Procesador.cc:129</a></div></div>
+<div class="ttc" id="aclassProcesador_html_ad0c00caaab94b8fa561e3db6ea7f36f2"><div class="ttname"><a href="classProcesador.html#ad0c00caaab94b8fa561e3db6ea7f36f2">Procesador::imprimir_procesador</a></div><div class="ttdeci">void imprimir_procesador() const</div><div class="ttdoc">Imprime el procesador.</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8cc_source.html#l00146">Procesador.cc:146</a></div></div>
+<div class="ttc" id="aclassProcesador_html_ae3d9e439b3ec313a37cb28e75035243f"><div class="ttname"><a href="classProcesador.html#ae3d9e439b3ec313a37cb28e75035243f">Procesador::add_proceso</a></div><div class="ttdeci">void add_proceso(const Proceso &amp;p)</div><div class="ttdoc">Añade un proceso al procesador.</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8cc_source.html#l00016">Procesador.cc:16</a></div></div>
+<div class="ttc" id="aclassProcesador_html_aee2a471e9888badc526dda5093499b48"><div class="ttname"><a href="classProcesador.html#aee2a471e9888badc526dda5093499b48">Procesador::get_memoria_disponible</a></div><div class="ttdeci">int get_memoria_disponible() const</div><div class="ttdoc">Get the memoria disponible object.</div><div class="ttdef"><b>Definition:</b> <a href="Procesador_8cc_source.html#l00121">Procesador.cc:121</a></div></div>
+<div class="ttc" id="aclassProceso_html"><div class="ttname"><a href="classProceso.html">Proceso</a></div><div class="ttdoc">Representa a un proceso con un identificador, su memoria requerida y su tiempo de ejecucion.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8hh_source.html#l00021">Proceso.hh:22</a></div></div>
+<div class="ttc" id="aclassProceso_html_a768a298ff4a363a53b68c9abb6c55c2e"><div class="ttname"><a href="classProceso.html#a768a298ff4a363a53b68c9abb6c55c2e">Proceso::consultar_mem_req</a></div><div class="ttdeci">int consultar_mem_req() const</div><div class="ttdoc">Consulta la cantidad de memoria que ocupa el proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8cc_source.html#l00018">Proceso.cc:18</a></div></div>
+<div class="ttc" id="aclassProceso_html_a9af6de881346a5f2cd1736f0b816fd20"><div class="ttname"><a href="classProceso.html#a9af6de881346a5f2cd1736f0b816fd20">Proceso::consultar_PID</a></div><div class="ttdeci">int consultar_PID() const</div><div class="ttdoc">Consulta el identificador del proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8cc_source.html#l00014">Proceso.cc:14</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
