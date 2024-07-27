@@ -12,7 +12,7 @@ To compile the project, you need to have the following dependencies installed:
 ### Instructions
 1. Clone the repository
  ```bash
-    $~ git clone https://github.com/FardinA143/Cluster-Compute.git
+    $~ git clone https://github.com/FardinA143/Computing-Cluster.git
  ```
 
 2. Navigate to the project directory
@@ -78,7 +78,7 @@ After this, the program will wait commands. The list of commands is shown below:
 
 
 ## Wiki
-You can find a wiki with the classes and methods of the project [here](wiki). 
+You can find a wiki with the classes and methods of the project [here](https://computing-cluster.fardinarafat.tk/). 
 > [!NOTE]
 >  As mentioned previously, the wiki is written in Spanish.
 
