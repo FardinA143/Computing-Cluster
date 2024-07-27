@@ -78,7 +78,7 @@ After this, the program will wait commands. The list of commands is shown below:
 
 
 ## Wiki
-You can find a wiki with the classes and methods of the project [here](https://computing-cluster.fardinarafat.tk/). 
+You can find a wiki with the classes and methods of the project <a href="https://computing-cluser.fardinarafat.tk/" target="_blank">here</a>. Docs generated with Doxygen 
 > [!NOTE]
 >  As mentioned previously, the wiki is written in Spanish.
 
