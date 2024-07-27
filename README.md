@@ -1,8 +1,9 @@
-# Cluster-Computing Process Management Simulation
+# Computing Cluster Process Management Simulation
 
 ## About
 This project consists of simulating a process management system of a computing cluster, as part of the work of the Programming II subject of the Polytechnic University of Catalonia. The wiki and the commands/functionalities are written in Spanish. The project is written in C++.
 The system is composed of a master node and worker nodes, which can have subnodes. There's a list of processes to be executed, which are defined by memory usage, time and priority. These are distributed afterwards to all the nodes, taking into account the best way to distribute them.
+
 ## How to compile
 To compile the project, you need to have the following dependencies installed:
 - C++ compiler (g++)
