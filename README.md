@@ -36,12 +36,14 @@ proc1 10 proc11 100 proc111 500 * * proc112 500 * * proc12 100 proc121
 500 * * proc122 500 * *
 ```
 This input will create a binary tree with the following structure:
-```
-             proc1
-          /         \
-    proc11          proc12
-    /    \          /     \
-proc111 proc112  proc121 proc122
+```mermaid
+stateDiagram-v2
+    proc1 --> proc11
+    proc11 --> proc111
+    proc11 --> proc112
+    proc1 --> proc12
+    proc12 --> proc121
+    proc12 --> proc122
 ```
 
 The asterisks represent an empty leaf node. Inputting two asterisks will mean that the node is a leaf node and has no children, so it will go back to the parent node, according to a DFS order. 
@@ -78,10 +80,10 @@ After this, the program will wait commands. The list of commands is shown below:
 
 
 ## Wiki
-You can find a wiki with the classes and methods of the project <a href="https://computing-cluster.upc.fardin.me/" target="_blank">here</a>. Docs generated with Doxygen 
+You can find a wiki with the classes and methods of the project <a href="https://computing-cluster.fardin.me/" target="_blank">here</a>. Docs generated with Doxygen 
 > [!NOTE]
 >  As mentioned previously, the wiki is written in Spanish.
 
 ### Contact
-You can contact me via email [here](mailto:fardin@tekhmos.com) or via Issues in this repository.
+You can contact me via email [here](mailto:gits@fardin.me) or via Issues in this repository.
 
